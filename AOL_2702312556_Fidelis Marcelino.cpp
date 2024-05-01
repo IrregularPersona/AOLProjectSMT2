@@ -101,7 +101,7 @@ void printTrieWithPrefix(struct trieNode *root, char *prefix, char *buffer, int 
 		}
 		
 		buffer[depth] = '\0';
-		printf("%d. %s\n",count, buffer);
+		printf("%d. %s%s\n",count, prefix, buffer);
 		count++;
 	}
 	
@@ -134,12 +134,12 @@ void searchPrefix(struct trieNode *root, char *prefix){
 	}
 	
 	printf("Words starting with \"%s\": \n", prefix);
-	printTrieWithPrefix(current, word, buffer, length);
+	printTrieWithPrefix(current, prefix, buffer, 0);
 }
 
 void menu(){
 	system("cls");
-	puts("1. Release a  new slang word");
+	puts("1. Release a new slang word");
 	puts("2. Search a slang word");
 	puts("3. View all slang words starting with a certain prefix word");
 	puts("4. View all slang words");
